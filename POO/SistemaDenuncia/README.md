@@ -28,7 +28,7 @@ Projeto desenvolvido para a disciplina de Programação Orientada a Objetos — 
 
 1. Clonar o repositório:
    ```bash
-   git clone LINK_DO_REPOSITORIO
+   git clone https://github.com/OfMuriloSM/Atividades/edit/main/POO/SistemaDenuncia.git
    
 2. Entrar na pasta do projeto:
    ```bash
