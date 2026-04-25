@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<TabPane tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.DenunciaController">
+
+    <Tab text="Portal do Aluno / Servidor">
+        <VBox spacing="15" alignment="TOP_CENTER" style="-fx-background-color: #f8f9fa;">
+            <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+            <Label text="Sistema de Ocorrências" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+            <Label text="Preencha os dados abaixo para relatar um problema." style="-fx-text-fill: #7f8c8d;"/>
+
+            <VBox spacing="5">
+                <Label text="Resumo do Problema:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;"/>
+                <TextField fx:id="txtTitulo" promptText="Ex: Ar condicionado vazando"/>
+
+                <Label text="Descrição Detalhada:" style="-fx-font-weight: bold; -fx-text-fill: #34495e;">
+                    <padding><Insets top="10" right="0" bottom="0" left="0"/></padding>
+                </Label>
+                <TextArea fx:id="txtDescricao" promptText="Informe o bloco, a sala e detalhes do que está acontecendo..." prefRowCount="5" wrapText="true"/>
+            </VBox>
+
+            <Button text="Registrar Ocorrência" onAction="#salvarDenuncia" maxWidth="Infinity" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10px; -fx-cursor: hand;"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="Painel do Técnico (Gestão)">
+        <StackPane style="-fx-background-color: #ffffff;">
+
+            <VBox fx:id="painelLogin" spacing="15" alignment="CENTER" maxWidth="250">
+                <Label text="Acesso Restrito" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #c0392b;"/>
+                <Label text="Digite a credencial para gerenciar chamados." style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;"/>
+                <PasswordField fx:id="txtSenha" promptText="Senha do Técnico (admin123)"/>
+                <Button text="Autenticar" onAction="#verificarSenha" maxWidth="Infinity" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px; -fx-cursor: hand;"/>
+            </VBox>
+
+            <VBox fx:id="painelGestao" spacing="15" visible="false" managed="false">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                <Label text="Controle de Chamados" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                <Label text="Selecione um chamado abaixo para alterar seu status:" style="-fx-text-fill: #7f8c8d;"/>
+
+                <ListView fx:id="listViewDenuncias" VBox.vgrow="ALWAYS" style="-fx-font-family: 'Consolas';"/>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Mudar para: Em Análise" onAction="#marcarEmAnalise" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px; -fx-cursor: hand;"/>
+                    <Button text="Mudar para: Resolvido" onAction="#marcarResolvido" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+
+        </StackPane>
+    </Tab>
+
+</TabPane>
