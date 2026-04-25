@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+target/
+build/
+*.class
+*.iml
+*.rar
+.DS_Store
